@@ -14,15 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import sys
 from pathlib import Path
 
 import numpy as np
-import pkg_resources
 import sapien
 from sapien import internal_renderer as R
 
 from .plugin import Plugin
 
+if sys.version_info >= (3, 9):
+    import importlib.resources as resources
+else:
+    import importlib_resources as resources
 
 class RenderOptionsWindow(Plugin):
     def __init__(self):
@@ -156,10 +160,7 @@ class RenderOptionsWindow(Plugin):
         self.shader_types = []
 
         try:
-            all_shader_dir = Path(
-                pkg_resources.resource_filename("sapien", "vulkan_shader")
-            )
-
+            all_shader_dir = Path(str(resources.files("sapien") / "vulkan_shader"))
             for f in all_shader_dir.iterdir():
                 if f.is_dir():
                     if any("gbuffer.frag" in x.name for x in f.iterdir()):

@@ -29,7 +29,8 @@ def _ensure_libvulkan_linux():
     # find and use system vulkan
     LD_LIBRARY_PATH = os.environ.get("LD_LIBRARY_PATH", "")
     link_paths = [x.strip() for x in LD_LIBRARY_PATH.split(":") if x.strip()]
-    extra_paths = ["/usr/lib", "/usr/lib64", "/usr/lib/x86_64-linux-gnu"]
+    multiarch = f"{platform.machine()}-linux-gnu"
+    extra_paths = ["/usr/lib", "/usr/lib64", f"/usr/lib/{multiarch}", f"/lib/{multiarch}"]
     for path in link_paths + extra_paths:
         if os.path.isfile(os.path.join(path, "libvulkan.so.1")):
             return

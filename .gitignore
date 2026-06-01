@@ -35,3 +35,10 @@ apidoc
 *.pb.cc
 *.pb.h
 python/py_package/*.so
+
+# build artifacts / local-hack sidecar dirs (recreated on each build)
+/build.log
+/sapien/
+python/py_package/oidn_library
+python/py_package/vulkan_library
+python/py_package/vulkan_shader

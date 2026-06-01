@@ -298,9 +298,9 @@ class CMakeBuild(build_ext):
                 print("copy library from", library_dir)
                 for lib in os.listdir(library_dir):
                     if lib in [
-                        "libOpenImageDenoise.so.2.0.1",
-                        "libOpenImageDenoise_core.so.2.0.1",
-                        "libOpenImageDenoise_device_cuda.so.2.0.1",
+                        "libOpenImageDenoise.so.2.4.1",
+                        "libOpenImageDenoise_core.so.2.4.1",
+                        "libOpenImageDenoise_device_cuda.so.2.4.1",
                     ]:
                         shutil.copy(os.path.join(library_dir, lib), oidn_library_path)
 

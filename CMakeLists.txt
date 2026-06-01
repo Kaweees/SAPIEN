@@ -95,7 +95,7 @@ endif ()
 file(GLOB_RECURSE SAPIEN_SRC "src/*.h" "src/*.cpp" "src/*.cc")
 add_library(sapien SHARED ${SAPIEN_SRC} ${SAPIEN_CUDA_SRC})
 if (${SAPIEN_CUDA})
-    set_target_properties(sapien PROPERTIES CUDA_ARCHITECTURES "60;61;70;75;80;86")
+    set_target_properties(sapien PROPERTIES CUDA_ARCHITECTURES "80;86;87;89;90;100;110;121")
 
     if (MSVC)
         target_link_libraries(svulkan2 PRIVATE "$ENV{CUDA_PATH}/lib/x64/cudart_static.lib")

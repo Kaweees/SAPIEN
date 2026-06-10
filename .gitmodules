@@ -3,5 +3,5 @@
 	url = https://github.com/haosulab/sapien-vulkan-2.git
 [submodule "3rd_party/simsense"]
 	path = 3rd_party/simsense
-	url = https://github.com/haosulab/simsense.git
+	url = https://github.com/Kaweees/simsense.git
 	branch = sapien
